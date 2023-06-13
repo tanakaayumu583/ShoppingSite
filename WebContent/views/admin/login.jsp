@@ -13,7 +13,7 @@ try{
 
 
 %>
-<%@include file="../../authentication.jsp"%>
+<%@include file="../authentication.jsp"%>
 <%@include file="../header.html"%>
 	<container>
 	<h2>ログイン画面</h2>

@@ -13,7 +13,7 @@ try{
 
 
 %>
-<%@include file="../../authentication.jsp"%>
+<%@include file="../authentication.jsp"%>
 <%@include file="../header.html"%>
 	<container>
 	<h2>ログイン画面</h2>
@@ -23,7 +23,7 @@ try{
 	<p style="color:green;">登録が完了しました。<br>登録したパスワードでログインしてください</p>
 	<%} %>
 
-	<form action="../jp.co.aforce.userlogin/Login" method="post">
+	<form action="/ShoppingSite/jp.co.aforce.servlet/Login" method="post">
 		<p>
 			<input type="text" name="user_name" placeholder="メールアドレス"
 			<%if(request.getParameter("login_id") != null){%>
@@ -42,7 +42,7 @@ try{
 		</p>
 		<div class="button"><input id="login"  type="submit" value="ログイン"></div>
 		<!-- <p><a href="register.jsp">会員登録が済んでいない人はこちら</a></p> -->
-		<p><a href="/Tanaka_study/views/users/register.jsp">会員登録が済んでいない人はこちら</a></p>
+		<p><a href="/ShoppingSite/views/users/register.jsp">会員登録が済んでいない人はこちら</a></p>
 	</form>
 	</container>
 <%@include file="../footer.html"%>

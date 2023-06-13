@@ -1,0 +1,46 @@
+    *{
+    margin:0;
+    padding:0;
+    }
+.background_img {
+height:700px;
+    text-align:center;    /* 文字中央寄せ */
+    border: solid 2px;      /* 枠線指定 */
+    background-image: url(https://img.freepik.com/free-photo/brown-gradient-background_53876-102760.jpg?w=900&t=st=1686635114~exp=1686635714~hmac=10e8d019569d4b4c4498e4e2bc3837cfac4f64719d3c2a4f58c24465d792f1e1);    /* 背景画像指定 */
+background-color:rgba(255,255,255,0.8);
+background-blend-mode:lighten;
+}
+.head_area{
+height:200px;
+}
+
+.logo{
+ width: 80%;
+  margin: 0 auto;
+}
+    
+    
+    /* ▼商品一覧 */
+    .product-container {
+      width: 100%;
+      overflow-x: hidden; /* 横方向のスクロールバーを非表示に */
+      white-space: nowrap;
+      position: absolute;
+      z-index;20
+    }
+
+    .product {
+      display: inline-block;
+      width: 200px;
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: center;
+      opacity: 0.3; /* 近くの商品以外を非表示にするための透明度設定 */
+    }
+
+    .product.highlight {
+      opacity: 1; /* 近くの商品をハイライトするための透明度設定 */
+      background-color: yellow; /* ハイライトの背景色 */
+    }
+        /* ▲商品一覧 */
