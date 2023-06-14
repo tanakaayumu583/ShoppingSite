@@ -1,6 +1,6 @@
 package jp.co.aforce.bean;
 
-public class MemberInformationBean implements java.io.Serializable {
+public class User_informationBean implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 //ユーザ情報
 	private int user_id;

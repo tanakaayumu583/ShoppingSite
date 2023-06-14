@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jp.co.aforce.bean.MemberInformationBean;
+import jp.co.aforce.bean.User_informationBean;
 
 @WebServlet("/jp.co.aforce.servlet/User_settings")
 public class User_settings extends HttpServlet {
@@ -28,7 +28,7 @@ public class User_settings extends HttpServlet {
 				"birth_day", "job", "zip_code","prefectures","city_address","phone_number",
 				"delivery_mail_address","email_delivery","login_id","login_password"));
 		//beanにpostデータを格納
-		MemberInformationBean pd = new MemberInformationBean();
+		User_informationBean pd = new User_informationBean();
 		for (int i = 0; i < list.size(); i++) {
 			if(request.getParameter(list.get(i))==null) {
 				continue;
@@ -36,7 +36,7 @@ public class User_settings extends HttpServlet {
 			pd.setData(list.get(i), request.getParameter(list.get(i)));
 		}
 		request.setAttribute("データ", pd);
-		MemberInformationBean p = (MemberInformationBean) request.getAttribute("データ");
+		User_informationBean p = (User_informationBean) request.getAttribute("データ");
 //会員情報登録
 		try {
 			Regist.member_insert(p);

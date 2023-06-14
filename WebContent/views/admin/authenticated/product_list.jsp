@@ -7,6 +7,8 @@
 <div>
 	<h2>Home</h2>
 	<div>home</div>
+	
+	<div></div>
 </div>
 </container>
 <%@include file="../../footer.html"%>

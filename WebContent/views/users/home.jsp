@@ -18,6 +18,9 @@
 				<ul>
 				<li><a href="/ShoppingSite/views/users/login.jsp">ログイン</a></li>
 				<li><a href="/ShoppingSite/views/users/register.jsp">会員登録</a></li>
+				<li><a href="/ShoppingSite/views/users/update.jsp">アカウント編集</a></li>
+				<li><a href="/ShoppingSite/views/users/register.jsp">退会</a></li>
+				<li><a href="/ShoppingSite/jp.co.aforce.servlet/Logout?status=users">ログアウト</a></li>
 				<li><a href="#">お知らせ</a></li>
 				</ul>
 				</div>
@@ -30,6 +33,7 @@
 				<div class="products">
 					<div class="product-container" id="productContainer"></div>
 				</div>
+				<div class="to_product_list"><a href="/ShoppingSite/jp.co.aforce.servlet/User_profuct_list">商品一覧</a></div>
 				<!-- ▲商品一覧 -->
 			</div>
 			<div class="button_colum"></div>

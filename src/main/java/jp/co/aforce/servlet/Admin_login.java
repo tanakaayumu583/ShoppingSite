@@ -15,8 +15,8 @@ import jp.co.aforce.bean.Authorization;
 import jp.co.aforce.dao.LoginDAO;
 import jp.co.aforce.tool.Page;
 
-@WebServlet("/jp.co.aforce.servlet/Login")
-public class Login extends HttpServlet {
+@WebServlet("/jp.co.aforce.servlet/Admin_login")
+public class Admin_login extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -35,21 +35,21 @@ public class Login extends HttpServlet {
 
 			List<Authorization> list = dao.login_check(user_name);
 			if(list.isEmpty()) {
-				url = "/ShoppingSite/views/users/login.jsp?status=fail";
+				url = "/ShoppingSite/views/admin/login.jsp?status=fail";
 				response.sendRedirect(url);
 			}
 
 			for (Authorization p : list) {
 				
-				if (p.getPassword().equals(password)) {
+				if (p.getPassword().equals(password)&&(p.getIs_admin()==1)) {
 //					セッションの発行
 					HttpSession session=request.getSession();
-					session.setAttribute("s_user_id", p.getId());
-					url = "/ShoppingSite/views/users/home.jsp?status=success";
+					session.setAttribute("s_a_user_id", p.getId());
+					url = "/ShoppingSite/views/admin/authenticated/home.jsp?status=success";
 					response.sendRedirect(url);
 
 				} else {
-					url = "/ShoppingSite/views/users/login.jsp?status=fail";
+					url = "/ShoppingSite/views/admin/login.jsp?status=fail";
 					response.sendRedirect(url);
 				}
 			}

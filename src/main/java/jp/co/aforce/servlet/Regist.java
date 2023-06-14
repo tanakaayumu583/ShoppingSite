@@ -1,14 +1,14 @@
 package jp.co.aforce.servlet;
 
-import jp.co.aforce.bean.MemberInformationBean;
-import jp.co.aforce.dao.Member_informationDAO;
+import jp.co.aforce.bean.User_informationBean;
+import jp.co.aforce.dao.User_informationDAO;
 
 public class Regist {
-	public static boolean member_insert(MemberInformationBean p) throws Exception {
+	public static boolean member_insert(User_informationBean p) throws Exception {
 		boolean successed = false;
 		//String message = "登録処理が完了しました。";
 		
-		Member_informationDAO dao = new Member_informationDAO();
+		User_informationDAO dao = new User_informationDAO();
 		int user_id = dao.insert_k_users(p);
 		p.setUser_id(user_id);
 		int line = dao.insert_authorization(p);

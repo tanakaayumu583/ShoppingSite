@@ -4,9 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import jp.co.aforce.bean.MemberInformationBean;
+import jp.co.aforce.bean.User_informationBean;
 
-public class Member_informationDAO extends DAO {
+public class User_informationDAO extends DAO {
 	//重複チェック
 	public int Unique_check(String check) throws Exception {
 		Connection con = getConnection();
@@ -24,7 +24,7 @@ public class Member_informationDAO extends DAO {
 		return line;
 	}
 	//会員登録処理 会員情報
-	public int insert_k_users(MemberInformationBean product) throws Exception {
+	public int insert_k_users(User_informationBean product) throws Exception {
 		int autoIncrementKey = 0;
 		Connection con = getConnection();
 
@@ -55,7 +55,7 @@ public class Member_informationDAO extends DAO {
 		return autoIncrementKey;
 	}
 	//会員登録処理　ログイン情報
-	public int insert_authorization(MemberInformationBean product) throws Exception {
+	public int insert_authorization(User_informationBean product) throws Exception {
 		Connection con = getConnection();
 
 		String sql = "insert into authorization (user_id,login_id,login_password)"

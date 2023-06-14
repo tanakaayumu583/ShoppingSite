@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jp.co.aforce.dao.Member_informationDAO;
+import jp.co.aforce.dao.User_informationDAO;
 
 /**
  * Servlet implementation class Ajax_unique_check
@@ -23,7 +23,7 @@ public class Ajax_unique_check extends HttpServlet {
 		int line=99;
 		
 		String check = request.getParameter("check"); //チェックする文字列
-		Member_informationDAO dao = new Member_informationDAO();
+		User_informationDAO dao = new User_informationDAO();
 		try {
 			line = dao.Unique_check(check);
 		} catch (Exception e) {

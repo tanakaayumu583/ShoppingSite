@@ -15,10 +15,10 @@ import jp.co.aforce.bean.Authorization;
 import jp.co.aforce.dao.LoginDAO;
 import jp.co.aforce.tool.Page;
 
-@WebServlet("/jp.co.aforce.servlet/Login")
-public class Login extends HttpServlet {
+@WebServlet("/jp.co.aforce.servlet/User_produvt_list")
+public class User_product_list extends HttpServlet {
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");

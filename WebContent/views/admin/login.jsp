@@ -16,14 +16,14 @@ try{
 <%@include file="../authentication.jsp"%>
 <%@include file="../header.html"%>
 	<container>
-	<h2>ログイン画面</h2>
+	<h2>管理者ログイン画面</h2>
 		<%if(login_status.equals(fail)){ %>
 	<p style="color:red;">ログインIDまたはパスワードが間違っています。</p>
 	<%}else if(login_status.equals(regist_success)) {%>
 	<p style="color:green;">登録が完了しました。<br>登録したパスワードでログインしてください</p>
 	<%} %>
 
-	<form action="../jp.co.aforce.userlogin/Login" method="post">
+	<form action="/ShoppingSite/jp.co.aforce.servlet/Admin_login" method="post">
 		<p>
 			<input type="text" name="user_name" placeholder="メールアドレス"
 			<%if(request.getParameter("login_id") != null){%>
