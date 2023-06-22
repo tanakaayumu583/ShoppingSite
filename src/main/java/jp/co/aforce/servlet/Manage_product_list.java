@@ -16,8 +16,8 @@ import jp.co.aforce.bean.ProductBean;
 import jp.co.aforce.dao.ProductDAO;
 import jp.co.aforce.tool.Page;
 
-@WebServlet("/jp.co.aforce.servlet/User_product_list")
-public class User_product_list extends HttpServlet {
+@WebServlet("/jp.co.aforce.servlet/Manage_product_list")
+public class Manage_product_list extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -45,10 +45,10 @@ public class User_product_list extends HttpServlet {
 			session.setAttribute("search_product_list", list);
 			
 			if (list.size() >= 1) {
-				url = "/ShoppingSite/views/users/shopping/product_list.jsp?status=success";
+				url = "/ShoppingSite/views/admin/authenticated/product_list.jsp?status=success";
 				response.sendRedirect(url);
 			} else {
-				url = "/ShoppingSite/views/users/shopping/product_list.jsp?status=none";
+				url = "/ShoppingSite/views/admin/authenticated/product_list.jsp?status=none";
 				response.sendRedirect(url);
 			}
 

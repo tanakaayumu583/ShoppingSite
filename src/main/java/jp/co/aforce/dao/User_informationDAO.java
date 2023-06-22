@@ -3,6 +3,8 @@ package jp.co.aforce.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import jp.co.aforce.bean.User_informationBean;
 
@@ -71,6 +73,44 @@ public class User_informationDAO extends DAO {
 		con.close();
 
 		return line;
+	}
+	
+	//会員一覧取得
+	public List<User_informationBean> search_member_list() throws Exception {
+
+		List<User_informationBean> list = new ArrayList<>();
+
+		Connection con = getConnection();
+
+		PreparedStatement st = con.prepareStatement(
+		"SELECT * FROM k_users LEFT JOIN authorization ON k_users.user_id = authorization.user_id");
+		ResultSet rs = st.executeQuery();
+
+		while (rs.next()) {
+			User_informationBean p = new User_informationBean();
+
+			p.setUser_id(rs.getInt("user_id"));
+			p.setLast_name(rs.getString("last_name"));
+			p.setFirst_name(rs.getString("first_name"));
+			p.setSex(rs.getInt("sex"));
+			p.setBirth_year(rs.getInt("birth_year"));
+			p.setBirth_month(rs.getInt("birth_month"));
+			p.setBirth_day(rs.getInt("birth_day"));
+			p.setJob(rs.getInt("job"));
+			p.setZip_code(rs.getInt("zip_code"));
+			p.setPrefectures(rs.getInt("prefectures"));
+			p.setCity_address(rs.getString("city_address"));
+			p.setPhone_number(rs.getString("phone_number"));
+			p.setDelivery_mail_address(rs.getString("delivery_mail_address"));
+			p.setEmail_delivery(rs.getInt("email_delivery"));
+			p.setLogin_id(rs.getString("login_id"));
+			p.setLogin_password(rs.getString("login_password"));
+			list.add(p);
+		}
+		st.close();
+		con.close();
+		return list;
+
 	}
 
 }

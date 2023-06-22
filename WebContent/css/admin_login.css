@@ -1,0 +1,72 @@
+/*全要素のマージン・パディングをリセット*/
+* {
+margin:0; padding:0; 		
+}
+container{
+
+    }
+.login_box{
+  width: 30%;
+  margin: 0 auto;
+  max-width: 500px;
+    text-align: center;
+    border: 1px solid #ccc;
+    height:270px!important;
+    margin-top: 120px!important;
+    width: 370px!important;
+}
+.inner_box{
+padding: 25px 30px 30px!important;
+}
+h1{
+padding: 0 0 20px 0;
+    color: #0075c8;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding-bottom: 15px!important;
+    text-align: center;
+    font-size: 150%;
+    }
+    .formbuttons{
+    margin: 10px 0;
+    }
+    #login_button{
+    background: #0075C8;
+    padding: 8px 20px;
+    color: #fff;
+    margin: 0 0 10px 0;
+    width: 100%;
+    font-weight: normal;
+    cursor: pointer;
+    border-color: #f9f9f9;
+    }
+    table{
+    width:100%;
+    }
+    tr{
+    width:100%;
+    }
+    .title{
+    padding-bottom: 5px;
+    display: block;
+    text-align: left;
+    padding: 0;
+    width: 100%;
+    }
+    
+    .input{
+    padding-bottom: 10px !important;
+    display: block;
+    text-align: left;
+    padding: 0;
+    width: 100%;
+    }
+    td input{
+    width:100%;
+    border: 1px solid #ddd;
+    background: #fff;
+    padding:5px;
+    }
+    
+    

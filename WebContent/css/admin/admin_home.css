@@ -1,0 +1,125 @@
+<style>
+* {
+margin:0; padding:0; 		
+}
+a, button {
+cursor :pointer;
+text-decoration:none;
+
+}
+body{
+overflow-x:hidden;
+background-color:#efefef;
+width:100%;
+color:#333;
+display:block;
+}
+container{
+width:100%;
+position:relative;
+    }
+    .innerBox{
+    max-width:93%;
+    width:100%;
+    position:relative;
+    margin: 0 auto;
+    }
+    .side_news{
+    
+    }
+    .p-mypage_left{
+    float:left;
+    padding:25px 0 45px;
+    width:calc(100% - 310px);
+    }
+    .o-title_mypage{
+    font-size:20px;
+    color:#3b3b3b;
+    margin-bottom:18px;
+    font-weight:600;
+    }
+    .p-mypage_content{
+    margin-bottom:15px;
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    }
+    .p-mypage_content_detail{
+        width:18%;
+        padding-top:9px;
+        margin:0 1.535% 17px 0;
+        display:block;
+        border-radius:4px;
+        background-color:#ffffff;
+        color:#3b3b3b;
+        overflow:hidden;
+        cursor:pointer;
+        text-decoration:none;
+        
+    }   
+    .center {
+    text-align:center;
+    }
+    .center img{
+    max-width:66%;
+    height:auto;
+    max-height:60px;
+    vertical-align:bottom;
+    padding:15px 7px;
+    }
+    .p-mypage_content_detail p:nth-child(2){
+    font-size:14px;
+    line-height:20px;
+    min-height:50px;
+    }
+    .unread{
+    font-weight:bold;
+    }
+    #side_news{
+    float:right;
+    width:300px;
+    background:#fff;
+    border-radius:10px;
+    margin-top:40px;
+    }
+    #side_news_text{
+    color:#3b3b3b;
+    font-weight:bold;
+    padding:15px;
+    border-bottom:1px solid #efefef;
+    }
+    #side_news_ul li{
+    list-style:none;
+    border-bottom:1px solid #efefef;
+    }
+    #side_news_ul a{
+    display:block;
+    padding:15px 13px;
+    }
+    .side_news_day{
+    color:#3b3b3b;
+    font-size:80%;
+    margin-bottom:8px;
+    }
+    .side_news_title{
+    color:#0075c8;
+    font-size:90%;
+    line-height:1.5;
+    }
+    #side_news_link{
+    padding:15px;
+    text-align:right;
+    }
+    
+    #side_news_link a{
+    height:30px;
+    display:inline-block;
+    border-radius:4px;
+    background:url(/ShoppingSite/img/icon/i_right.png) 15px center/8px no-repeat #0075c8;
+    color:#ffffff;
+    line-height:30px;
+    font-size:15px;
+    padding:0 15px 0 30px;
+    }
+    
+</style>

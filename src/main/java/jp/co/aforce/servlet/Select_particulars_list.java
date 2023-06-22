@@ -12,12 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import jp.co.aforce.bean.ProductBean;
-import jp.co.aforce.dao.ProductDAO;
+import jp.co.aforce.bean.ParticularsBean;
+import jp.co.aforce.dao.ParticularsDAO;
 import jp.co.aforce.tool.Page;
 
-@WebServlet("/jp.co.aforce.servlet/User_product_list")
-public class User_product_list extends HttpServlet {
+@WebServlet("/jp.co.aforce.servlet/Select_particulars_list")
+public class Select_particulars_list extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -27,28 +27,21 @@ public class User_product_list extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		Page.header(out);
-		//getの値を取得　今後開発予定
-		//検索や並べ替え用
-		//String name = request.getParameter("name");
-		//String description = request.getParameter("description");
-		//beanに格納
-		//s_a_user_id = se
 		HttpSession session=request.getSession();
-		//String s_a_user_id = (String)session.getAttribute("s_a_user_id");
 
 		try {
 
 			String url = "";
-			ProductDAO dao = new ProductDAO();
-			List<ProductBean> list = new ArrayList<>();
-			list = dao.search_product_list();
-			session.setAttribute("search_product_list", list);
+			ParticularsDAO dao = new ParticularsDAO();
+			List<ParticularsBean> list = new ArrayList<>();
+			list = dao.search_particulars_list();
+			session.setAttribute("search_particulars_list", list);
 			
 			if (list.size() >= 1) {
-				url = "/ShoppingSite/views/users/shopping/product_list.jsp?status=success";
+				url = "/ShoppingSite/views/admin/authenticated/particulars_list.jsp?status=success";
 				response.sendRedirect(url);
 			} else {
-				url = "/ShoppingSite/views/users/shopping/product_list.jsp?status=none";
+				url = "/ShoppingSite/views/admin/authenticated/particulars_list.jsp?status=none";
 				response.sendRedirect(url);
 			}
 

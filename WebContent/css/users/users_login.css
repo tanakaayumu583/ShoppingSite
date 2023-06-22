@@ -1,0 +1,366 @@
+<style>
+* {
+margin:0; padding:0; 		
+}
+.clearfix {
+    display: block;
+}
+.clear {
+    clear: both;
+}
+a:link, a:visited {
+    color: #660000;
+    text-decoration: none;
+}
+.notext {
+    display: none;
+}
+.clearfix:after {
+    display: block;
+    clear: both;
+    height: 0px;
+    line-height: 0px;
+    visibility: hidden;
+    content: ".";
+}
+/*▼宣伝*/
+.smart-bar-container{
+position:absolute;
+width:100%;
+height:77px;
+z-index:2;
+background:#eceb98;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.smart-bar-content{
+    padding-top: 1.6rem;
+    padding-bottom: 1.6rem;
+    padding-left: 2.4rem;
+}
+.smart-bar-content-textarea{
+text-align: center;
+font-size: 1.6rem;
+    font-family: var(--font-stack-text);
+    font-weight: 400;
+    line-height: 1.4;
+}
+.button_area{
+margin-left: 1.6rem;
+}
+.propaganda_button{
+background-color: #a435f0;
+color: #fff;
+height: 40px;
+align-items: center;
+border: none;
+cursor: pointer;
+padding: 0 1.2rem;
+}
+/*▲宣伝*/
+/* ▼HEADER */
+.frame_outer {
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+}
+#header_wrap {
+    min-height: 82px;
+    background: none;
+}
+#header {
+    margin: auto;
+    width: 980px;
+}
+#logo_area {
+    position: relative;
+    top: 80px;
+    left: 290px;
+    width: 390px;
+    text-align: center;
+}
+#logo_area h1 {
+    width: 378px;
+    height: 33px;
+    text-align: center;
+}
+a:link, a:visited {
+    color: #660000;
+    text-decoration: none;
+}
+/*#logo_area h1 span {
+    display: none;
+}*/
+#header_utility {
+    float: right;
+    width: 580px;
+}
+#headerInternalColumn {
+    margin-top: 5px;
+    float: right;
+    width: 520px;
+    height: 35px;
+}
+
+ol, ul, li {
+    list-style: none;
+}
+
+/* ▲HEADER */
+body.index #container {
+    margin: 0 auto;
+    padding: 0 0 30px 0;
+    width: 980px;
+    background: none;
+    text-align: left;
+}
+body.index #one_maincolumn {
+    margin: 0 auto;
+    width: 960px;
+}
+.main_column {
+    padding: 10px 0 20px;
+}
+/*▼トップロゴ*/
+.rss-popup {
+    height: 150px;
+}
+.toplogo {
+    position: absolute;
+    width: 390px;
+    height: 65px;
+    background: url(/user_data/packages/default/img/ajax/popupbubble_icon.png) no-repeat 0 0;
+    top: 138px;
+    left: 50%;
+    display: block;
+    margin-left: -200px;
+    text-align: center;
+    border: none;
+}
+.rss-popup em {
+    background: url(/user_data/packages/default/img/ajax/popupbubble.png) no-repeat;
+    width: 100px;
+    height: 49px;
+    position: absolute;
+    top: -70px;
+    left: 0px;
+    text-align: center;
+    text-indent: -9999px;
+    z-index: 2;
+    display: none;
+}
+/*▲トップロゴ*/
+
+
+/*▼FOOTER*/
+.index #footer_wrap {
+    position: absolute;
+    top: 1175px;
+    left: 50%;
+    margin: 0 0 0 -490px;
+    width: 980px;
+    height: 80px;
+    background: none;
+    text-align: center;
+}
+#footer {
+    margin: auto;
+    padding-top: 10px;
+    width: 950px;
+    height: 80px;
+    display: block;
+    text-align: center;
+}
+.index #footer_menu {
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    border: 1px;
+    margin: 0 0 0 -340px;
+    width: 680px;
+    height: 28px;
+    background: none;
+}
+.index #footer_menu a {
+    display: inline-block;
+}
+.index #footer_menu .abouts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 110px;
+    height: 27px;
+    border: none;
+}
+#copyright {
+    width: 740px;
+    margin: 0 auto 0 auto;
+    text-align: center;
+    font-size: 97%;
+    color: #000;
+}
+/*▲FOOTER*/
+
+/*▼詳細画面専用css*/
+/*
+.undercolumn{
+    position: absolute;
+    left: 50%;
+    width: 800px;
+    height: 640px;
+    margin: 20px 0 30px -373px;
+    padding: 10px 0 0 0;
+    overflow: auto;
+}*/
+
+/*試し*/
+.letter {
+height:450px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  margin: 70px auto 0;
+  max-width: 800px;
+  min-height: 300px;
+  padding: 24px;
+  position: relative;
+  width: 80%;
+}
+.letter:before, .letter:after {
+  content: "";
+  height: 98%;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+.letter:before {
+  background: #fafafa;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  left: -5px;
+  top: 4px;
+  transform: rotate(-2.5deg);
+}
+.letter:after {
+  background: #f6f6f6;
+  box-shadow: 0 0 3px rgba(0,0,0,0.2);
+  right: -3px;
+  top: 1px;
+  transform: rotate(1.4deg);
+}
+/*試し*/
+
+
+/*▲詳細画面専用css*/
+/*▼ログイン画面付け足しcss*/
+.title_area{
+margin-top:20px;
+height:50px;
+text-align: center;
+color:rgba(220, 230, 76, 0.8);
+}
+.from_area{
+height:270px;
+text-align: center;
+}
+.input_area{
+height:200px;
+display: flex;
+  align-items: center;
+  justify-content: center;
+  
+    flex-flow: column;
+  margin:0 0 1em;
+}
+.id_area, .password_area{
+  padding:1em;
+  margin:0.5em auto;
+  width:50%;
+  text-align: center;
+  
+  position: relative;
+    box-sizing: border-box;
+    height: 52px;
+    margin-bottom: 24px;
+}
+#id_label, #password_label{
+    color: green;
+    font-size: 12px;
+    padding-left: 202px;
+    margin-right: auto;
+    margin-bottom:-20px;
+}
+
+.id_area::after, .password_area::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 2px;
+    border-bottom: 2px solid #dee5ec;
+}
+.id_area.active::after{
+border-bottom: 2px solid green;
+}
+.id_area.error::after{
+border-bottom: 2px solid red;
+}
+.password_area.active::after{
+border-bottom: 2px solid green;
+}
+.error_label{
+color:red !important;
+}
+.input_area input{
+margin-left:-30px;
+background-color:white !important;
+appearance: none;
+    bottom: 10px;
+    width: 100%;
+    height: 20px;
+    line-height: 16px;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: transparent;
+    color: #444 !important;
+    font-size: 16px!important;
+}
+.input_area input:focus {
+    border:none;
+    outline: none;  
+}
+
+.submit_area{
+height:50px;
+text-align: center;
+}
+.button{
+width: 400px;
+height:60px;
+margin:0 auto;
+}
+#login{
+    appearance: none;
+    box-sizing: border-box;
+    border-radius: 5px;
+    width: 100%;
+    text-decoration: none!important;
+    font-weight: 700;
+    height: 60px;
+    font-size: 16px;
+    background-color:rgba(220, 230, 76, 0.8);
+    color: #fff!important;
+    border: 0;
+    cursor: pointer;
+}
+.no_submit{
+background-color:#dee5ec !important;
+cursor:not-allowed !important;
+}
+
+
+/*▲ログイン画面付け足しcss*/
+
+</style>

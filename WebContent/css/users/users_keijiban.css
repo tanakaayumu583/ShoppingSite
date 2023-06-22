@@ -1,0 +1,35 @@
+<style>
+/*▼ルーズリーフ風ボックス*/
+/*外枠の設定*/
+.note-box {
+   border: solid 2px #999; /*外枠の線*/
+   padding: 0 1em 0 2em; /*内側の余白*/
+   position: relative;
+   background-color:white;
+   width:300px;
+   border:none;
+   border-radius:5px;
+}
+
+/*文字、罫線の設定*/
+.note-box p {
+   border-bottom: dashed 1px #ccc; /*罫線*/
+   line-height: 1.5; /*行の高さ*/
+   padding: 0.5em 0 0.5em 0.5em; /*文字の位置*/
+   margin:0;
+}
+.note-box p:last-of-type {
+   border-bottom: none;
+}
+
+/*ドットの設定*/
+.note-box::before {
+   content: "";
+   position: absolute;
+   border-right: dotted 10px #ddd; /*ドットの大きさ、高さ*/
+   height:90%;
+   top:0.5em; /*位置*/
+   left:0.5em; /*位置*/
+}
+/*▲ルーズリーフ風ボックス*/
+</style>

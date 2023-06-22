@@ -10,17 +10,16 @@
 <title>Home</title>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<%@include file="../../../css/users/users_home.css"%>
 <%@include file="../../../css/users/users_keijiban.css"%>
+<%@include file="../../../css/users/users_product_list.css"%>
 <%@include file="../../../css/users/users_background.css"%>
 </head>
-<!-- ▼おすすめ商品取得  -->
+<!-- ▼商品一覧取得  -->
 <%
-ProductDAO dao = new ProductDAO();
-List<jp.co.aforce.bean.ProductBean> list = new ArrayList<>();
-list = dao.search_recommend_product_list();
+List<jp.co.aforce.bean.ProductBean> list = (List<jp.co.aforce.bean.ProductBean>) session
+		.getAttribute("search_product_list");
 %>
-<!-- ▲おすすめ商品取得  -->
+<!-- ▲商品一覧取得  -->
 <!-- ▼ログインステータス取得  -->
 <%
 boolean is_login;
@@ -90,7 +89,59 @@ if (loginCheck == null) {
 								<%}%>
 							</ul>
 						</span>
+						<div id="myOnPageContent" style="display: none">
+							<div class="news_contents">
+								<%
+								for (int i = 1; i <= 3; i++) {
+								%>
+								<dl class="newslist">
+									<dt class="newstitle">案内タイトル</dt>
+									<dd class="mini">説明文</dd>
+								</dl>
+								<%
+								}
+								%>
+							</div>
+						</div>
+						<div id="myOnPageContent2" style="display: none">
+							<div class="news_contents">
+								<%
+								for (int i = 1; i <= 3; i++) {
+								%>
+								<dl class="newslist">
+									<dt class="newstitle">案内タイトル</dt>
+									<dd class="mini">説明文</dd>
+								</dl>
+								<%
+								}
+								%>
+							</div>
+						</div>
 						<!-- ▲総合案内とお知らせ -->
+						<!-- ▼カテゴリ総合案内と同時利用でポップアップ表示 -->
+						<div id="myOnPageContent3" style="display: none">
+							<div class="news_contents">
+								<dl class="newslist">
+									<dt class="newstitle">
+										<ul id="categorytree">
+											<%
+											for (int i = 1; i <= 3; i++) {
+											%>
+											<li class="level1">
+												<p>
+													<a
+														href="https://pan.catnote.co.jp/products/list.php?category_id=8">脚種目</a>
+												</p>
+											</li>
+											<%
+											}
+											%>
+										</ul>
+									</dt>
+								</dl>
+							</div>
+						</div>
+						<!-- ▲カテゴリ総合案内と同時利用でポップアップ表示 -->
 					</div>
 				</div>
 			</div>
@@ -112,7 +163,7 @@ if (loginCheck == null) {
 						<button v-on:click="upCount" type="button"
 							class="btn btn-outline-primary">残高更新</button>
 					</p>
-					<p class="">合計 ： 12343円</p>
+					<p class="">合計　： 12343円</p>
 				</div>
 				<!-- ▲掲示板 -->
 				<!-- ▼おすすめ商品 -->
@@ -120,39 +171,46 @@ if (loginCheck == null) {
 					<div id="recommend_area">
 						<div class="bloc_body clearfix">
 							<%
-							int i = 1;
 							for (jp.co.aforce.bean.ProductBean p : list) {
 							%>
-							<div class="product_item clearfix">
-								<div class="productImage">
-									<a href="#"><img
-										src="/ShoppingSite/img/product_img/<%=p.getProduct_id()%>/<%=p.getP_img()%>"
-										style="width: 150px; height: 150px;" alt="商品"
-										class="toppicture" /></a>
+							<div class="product_item">
+								<div class="image_area">
+									<div class="productImage">							
+										<a href="/ShoppingSite/jp.co.aforce.servlet/User_product_detail?product_id=<%=p.getProduct_id()%>"><img
+											src="/ShoppingSite/img/product_img/<%=p.getProduct_id()%>/<%=p.getP_img()%>"
+											style="width: 150px; height: 150px;" alt="商品"
+											class="toppicture" /></a>
+									</div>
+									<div class="picture_frame">
+										<img src="/ShoppingSite/img/users/hyoushoudai01_kakou.png"
+											style="width: 200px; height: 120px; margin-top: -60px; position: relative; z-index: -1;">
+									</div>
 								</div>
-								<div class="picture_frame">
-									<img src="/ShoppingSite/img/users/hyoushoudai01_kakou.png"
-										style="width: 200px; height: 120px; margin-top: -60px; position: relative; z-index: -1;">
+								<div class="inner_area">
+									<div class="name_area">
+										<p class="name">
+											<strong><%=p.getName()%></strong>
+										</p>
+									</div>
+									<div class="description_area">
+										<p class="description"><%=p.getDescription()%></p>
+									</div>
+									<div class="bottom_area">
+										<div class="price_area">
+											<p class="price"><%=p.getPrice()%>円
+											</p>
+										</div>
+										<div class="detail_area"><button type="button" onclick="location.href='/ShoppingSite/jp.co.aforce.servlet/User_product_detail?product_id=<%=p.getProduct_id()%>'">詳細を見る</button></div>
+									</div>
 								</div>
 							</div>
+							<div class="clear"></div>
 							<%
-							if (i % 3 == 0) {
-							%>
-							<div clas="clear"></div>
-							<%
-							}
-							i++;
 							}
 							%>
 							<div class="clear"></div>
 						</div>
 					</div>
-				</div>
-				<div style="text-align: right;">
-					<a
-						style="cursor: pointer; z-index: 2; position: relative; text-decoration: underline;"
-						href="/ShoppingSite/jp.co.aforce.servlet/User_product_list">商品一覧
-						>></a>
 				</div>
 				<!-- ▲おすすめ商品 -->
 			</div>
@@ -176,7 +234,6 @@ if (loginCheck == null) {
 	<div id="mTip-1" class="black mTip mTip-left"
 		style="opacity: 0; display: none; position: absolute; z-index: 10000; left: 614px; top: 158px;">トップページへ</div>
 </body>
-
 <!-- ▲BODY部 エンド -->
 <script>
       const app = new Vue({

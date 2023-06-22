@@ -19,7 +19,7 @@ List<jp.co.aforce.bean.ProductBean> list = (List<jp.co.aforce.bean.ProductBean>)
 		<jsp:include page="../header_admin.jsp" />
 		<container>
 		<div class="p-facility_list o-box is-main-content">
-			<h2 class="o-title_member-search">商品一覧</h2>
+			<h2 class="o-title_member-search">メッセージ設定</h2>
 			<!-- ▼商品追加 -->
 			<p class="product_add_button_area"><a class="product_add_button" href="/ShoppingSite/views/admin/authenticated/add_product.jsp">商品登録</a></p>
 			<!-- ▲商品追加 -->
