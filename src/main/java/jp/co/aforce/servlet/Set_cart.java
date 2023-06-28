@@ -26,6 +26,7 @@ public class Set_cart extends HttpServlet {
 		String name = request.getParameter("name");
 		int price = Integer.parseInt(request.getParameter("price"));
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
+		String p_img = request.getParameter("p_img");
 		//セッション受け取り
 		HttpSession session=request.getSession();
 		CartBean cart=(CartBean)session.getAttribute("cart");
@@ -34,7 +35,7 @@ public class Set_cart extends HttpServlet {
 			cart=new CartBean();
 		}
 
-		ProductBean pro=new ProductBean(product_id,name,price,quantity);
+		ProductBean pro=new ProductBean(product_id,name,price,quantity,p_img);
 		CartLogic logic=new CartLogic();
 		logic.execute(cart, pro);
 		session.setAttribute("cart", cart);

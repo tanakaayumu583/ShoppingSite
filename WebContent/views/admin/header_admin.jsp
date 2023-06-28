@@ -2,12 +2,14 @@
 <header class="header">
 	<div class="logo">
 		<!-- ロゴ画像を表示するための要素 -->
-		<img src="logo.png" alt="ロゴ">
+		<a href="/ShoppingSite/views/admin/authenticated/home.jsp">
+		<img src="/ShoppingSite/img/icon/to_top_kinniku_nohaikei.png" style="width:50px;height:50px;" alt="ロゴ">
+		</a>
 	</div>
 	<div class="user-info">
 		<!-- ユーザアイコン -->
 		<div class="user-icon">
-			<img src="user-icon.png" alt="ユーザアイコン">
+			<img src="/ShoppingSite/img/icon/person_nohaikei.png" style="width:50px;height:50px;" alt="ユーザアイコン">
 		</div>
 		<!-- ユーザ名 -->
 		<div class="user-name">
@@ -18,9 +20,9 @@
 			</ul>
 		</div>
 		<!-- ベルマーク -->
-		<div class="notification-icon">
+		<!-- <div class="notification-icon">
 			<img src="bell-icon.png" alt="ベルマーク">
-		</div>
+		</div> -->
 	</div>
 </header>
 <style type="text/css">

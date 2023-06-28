@@ -14,12 +14,13 @@ public class ProductBean implements java.io.Serializable {
 	public ProductBean() {
 		super();
 	}
-	public ProductBean(int product_id,String name ,int price,int quantity) {
+	public ProductBean(int product_id,String name ,int price,int quantity ,String p_img) {
 		super();
 		this.product_id = product_id;
 		this.name = name;
 		this.price = price;
 		this.quantity = quantity;
+		this.p_img = p_img;
 	}
 	
 	public int getProduct_id() {

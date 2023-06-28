@@ -17,7 +17,7 @@ public class LoginDAO extends DAO {
 		Connection con = getConnection();
 
 		PreparedStatement st = con.prepareStatement(
-				"select * from authorization where login_id = ? ");
+				"select * from authorization where login_id = ? and authenticated = 1");
 		st.setString(1, keyword);
 		ResultSet rs = st.executeQuery();
 

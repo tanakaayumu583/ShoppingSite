@@ -130,7 +130,7 @@ public class User_informationBean implements java.io.Serializable {
 	//セット変換
 	public void setData(String post_name,String post_value) {
 		switch (post_name) {
-		case "user__id":
+		case "user_id":
 			setUser_id(Integer.parseInt(post_value));
 			break;
 		case "last_name":

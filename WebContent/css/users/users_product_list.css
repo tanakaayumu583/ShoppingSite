@@ -12,6 +12,12 @@ a:link, a:visited {
     color: #660000;
     text-decoration: none;
 }
+.f_l{
+float:left;
+}
+/f_r{
+float:right;
+}
 .notext {
     display: none;
 }
@@ -222,7 +228,7 @@ body.index #one_maincolumn {
 
 /*▼商品一覧ア*/
 .main_column .bloc_outer {
-    margin-top: 100px;
+    margin-top: 20px;
     margin-bottom: 20px;
 }
 #recommend_area {

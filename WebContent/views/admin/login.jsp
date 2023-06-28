@@ -13,12 +13,13 @@ try {
 }
 %>
 <%@include file="../authentication.jsp"%>
+<link rel="icon" href="/ShoppingSite/img/icon/favicon_admin.png">
 <link href="/ShoppingSite/css/admin_login.css" rel="stylesheet">
 <%@include file="../header.html"%>
 
 <container>
-<div class="login_box">
-	<div class="inner_box">
+<div class="login_box" style="height:300px !important;">
+	<div class="inner_box" >
 
 		<%
 		if (login_status.equals(fail)) {

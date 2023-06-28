@@ -3,6 +3,7 @@ package jp.co.aforce.bean;
 public class NotificationBean implements java.io.Serializable {
 
 	private int notification_id;
+	private int read;
 	private String date;
 	private String first_name;
 	private String last_name;
@@ -10,6 +11,9 @@ public class NotificationBean implements java.io.Serializable {
 	
 	public int getNotification_id() {
 		return notification_id;
+	}
+	public int getRead() {
+		return read;
 	}
 	public String getDate() {
 		return date;
@@ -27,6 +31,9 @@ public class NotificationBean implements java.io.Serializable {
 	}
 	public void setNotification_id(int notification_id) {
 		this.notification_id = notification_id;
+	}
+	public void setRead(int read) {
+		this.read = read;
 	}
 	public void setDate(String date) {
 		this.date = date;

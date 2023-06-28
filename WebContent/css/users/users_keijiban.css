@@ -22,14 +22,34 @@
    border-bottom: none;
 }
 
+
 /*ドットの設定*/
 .note-box::before {
    content: "";
    position: absolute;
    border-right: dotted 10px #ddd; /*ドットの大きさ、高さ*/
    height:90%;
-   top:0.5em; /*位置*/
+   top:0.2em; /*位置*/
    left:0.5em; /*位置*/
 }
 /*▲ルーズリーフ風ボックス*/
+.osaihu_area{
+  display: flex;
+  align-items: center;
+}
+.btn-outline-primary{
+  background-image: url('/ShoppingSite/img/users/cloud_update.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 30px; /* ボタンの幅 */
+  height: 30px; /* ボタンの高さ */
+  border: none; /* ボタンの枠線を削除 */
+  border-radius: 50%; /* ボタンを円形にする */
+  margin-top: auto; /* テキストの上下中央寄せ */
+  margin-bottom: auto;
+  margin-left: auto;
+  cursor:pointer;
+  background-color: white;
+}
 </style>

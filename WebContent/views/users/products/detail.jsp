@@ -10,7 +10,9 @@
 <title>Home</title>
 <%@include file="../../../css/users/users_product_detail.css"%>
 <%@include file="../../../css/users/users_background.css"%>
+<link rel="icon" href="/ShoppingSite/img/icon/to_top_kinniku_nohaikei.png">
 </head>
+<%@include file="../../to_top.html"%>
 <!-- ▼商品詳細取得　-->
 <%
 List<jp.co.aforce.bean.ProductBean> list = (List<jp.co.aforce.bean.ProductBean>) session
@@ -37,7 +39,7 @@ if (loginCheck == null) {
 			<div id="header" class="clearfix">
 				<div id="logo_area">
 					<h1>
-						<a href="#"><span>ホームタイトル</span></a>
+						<a href="#"><span>EC Shopping</span></a>
 					</h1>
 				</div>
 				<div id="header_utility">
@@ -59,6 +61,7 @@ if (loginCheck == null) {
 							<div class="photo">
 								<img src="/ShoppingSite/img/product_img/<%=p.getProduct_id()%>/<%=p.getP_img()%>" class="picture"
 								style="width:260px; height:260px;">
+								<input type="hidden" name="p_img" value="<%=p.getP_img()%>">
 							</div>
 						</div>
 						<div class="detail_text">

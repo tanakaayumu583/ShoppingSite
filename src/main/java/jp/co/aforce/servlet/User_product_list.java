@@ -1,7 +1,7 @@
 package jp.co.aforce.servlet;
-
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,29 +23,40 @@ public class User_product_list extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
+		
 
 		PrintWriter out = response.getWriter();
 
+		String keyword = "";
+		String order_by = "";
 		Page.header(out);
 		//getの値を取得　今後開発予定
 		//検索や並べ替え用
-		//String name = request.getParameter("name");
-		//String description = request.getParameter("description");
+		keyword = request.getParameter("keyword");
+		order_by = request.getParameter("order_by");
 		//beanに格納
-		//s_a_user_id = se
 		HttpSession session=request.getSession();
-		//String s_a_user_id = (String)session.getAttribute("s_a_user_id");
 
 		try {
 
 			String url = "";
 			ProductDAO dao = new ProductDAO();
 			List<ProductBean> list = new ArrayList<>();
-			list = dao.search_product_list();
-			session.setAttribute("search_product_list", list);
-			
+			list = dao.search_product_list(keyword,order_by);
+
+
 			if (list.size() >= 1) {
-				url = "/ShoppingSite/views/users/shopping/product_list.jsp?status=success";
+				String encodedKeyword = "";
+				String encodedOrderBy = "";
+				if((keyword != "")&&(keyword != null)) {
+				encodedKeyword = URLEncoder.encode(keyword, "UTF-8");
+				}
+				if((order_by != "")&&(order_by != null)) {
+				encodedOrderBy = URLEncoder.encode(order_by, "UTF-8");
+				}
+				session.setAttribute("search_product_list", list);
+
+				url = "/ShoppingSite/views/users/shopping/product_list.jsp?status=success&keyword=" + encodedKeyword + "&order_by=" + encodedOrderBy;
 				response.sendRedirect(url);
 			} else {
 				url = "/ShoppingSite/views/users/shopping/product_list.jsp?status=none";

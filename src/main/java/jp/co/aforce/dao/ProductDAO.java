@@ -33,14 +33,37 @@ public class ProductDAO extends DAO {
 		return autoIncrementKey;
 	}
 	//商品一覧取得
-	public List<ProductBean> search_product_list() throws Exception {
+	public List<ProductBean> search_product_list(String keyword, String order_by) throws Exception {
+		String sql_keyword = "";
+		String sql_order_by = "";
+		if((keyword != "")&&(keyword != null)) {
+			sql_keyword = "AND name LIKE \"%"+keyword+"%\""; 
+		}
+		if((order_by != "")&&(order_by != null)) {
+			
+	        switch (order_by) {
+	        case "新着":
+	        	sql_order_by = " ORDER BY product_id DESC"; 
+	            break;
+	        case "価格が高い順":
+	        	sql_order_by = " ORDER BY `price` DESC"; 
+	            break;
+	        case "価格が安い順":
+	        	sql_order_by = " ORDER BY price ASC"; 
+	            break;
+	        }
+		}
 
 		List<ProductBean> list = new ArrayList<>();
 
 		Connection con = getConnection();
 
 		PreparedStatement st = con.prepareStatement(
-				"select * from products where (deleted is null or deleted != 1)");
+				"select * from products where ((deleted is null or deleted != 1)"
+				+ sql_keyword
+				+ ")"
+				+ sql_order_by
+				);
 		//st.setString(1, s_a_user_id);
 		ResultSet rs = st.executeQuery();
 
@@ -89,13 +112,21 @@ public class ProductDAO extends DAO {
 	//商品更新
 	public int update_product(ProductBean product) throws Exception {
 		Connection con = getConnection();
+		String sql_pimg = "";
+		if(product.getP_img() == null) {
+			sql_pimg = "";
+		}else {
+			sql_pimg = ",p_img = \""+product.getP_img()+"\"";
+		}
 
 		PreparedStatement st = con.prepareStatement(
-				"UPDATE products SET name = ?,description = ?,p_img = ?  WHERE product_id = ?");
+				"UPDATE products SET name = ?,description = ?"
+				+ sql_pimg
+				+ "  WHERE product_id = ?");
 		st.setString(1, product.getName());
 		st.setString(2, product.getDescription());
-		st.setString(3, product.getP_img());
-		st.setInt(4, product.getProduct_id());
+//		st.setString(3, product.getP_img());
+		st.setInt(3, product.getProduct_id());
 
 		int line = st.executeUpdate();
 

@@ -5,6 +5,7 @@ public class ParticularsBean implements java.io.Serializable {
 	private int id;
 	private long particulars_id;
 	private int user_id;
+	private String name;
 	private int product_id;
 	private String product_name;
 	private int product_price;
@@ -27,6 +28,9 @@ public class ParticularsBean implements java.io.Serializable {
 	
 	public int getProduct_id() {
 		return product_id;
+	}
+	public String getName() {
+		return name;
 	}
 	public String getProduct_name() {
 		return product_name;

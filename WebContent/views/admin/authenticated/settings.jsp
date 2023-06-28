@@ -13,6 +13,7 @@ List<jp.co.aforce.bean.ProductBean> list = (List<jp.co.aforce.bean.ProductBean>)
 <meta charset="UTF-8">
 <title>Home</title>
 <%@include file="../../../../css/admin/product_list.css"%>
+<link rel="icon" href="/ShoppingSite/img/icon/favicon_admin.png">
 </head>
 <body>
 	<main>

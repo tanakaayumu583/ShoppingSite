@@ -12,6 +12,12 @@ a:link, a:visited {
     color: #660000;
     text-decoration: none;
 }
+.f_l{
+float:left;
+}
+.f_r{
+float:right;
+}
 .notext {
     display: none;
 }
@@ -22,6 +28,9 @@ a:link, a:visited {
     line-height: 0px;
     visibility: hidden;
     content: ".";
+}
+.a_tag_nopoint{
+    pointer-events: none;
 }
 /*▼宣伝*/
 .smart-bar-container{

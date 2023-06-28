@@ -37,11 +37,12 @@ public class Manage_product_list extends HttpServlet {
 		//String s_a_user_id = (String)session.getAttribute("s_a_user_id");
 
 		try {
+			String none = "";
 
 			String url = "";
 			ProductDAO dao = new ProductDAO();
 			List<ProductBean> list = new ArrayList<>();
-			list = dao.search_product_list();
+			list = dao.search_product_list(none,none);
 			session.setAttribute("search_product_list", list);
 			
 			if (list.size() >= 1) {

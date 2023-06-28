@@ -21,6 +21,8 @@ try {
 <title>Home</title>
 <%@include file="../../../css/users/users_login.css"%>
 <%@include file="../../../css/users/users_background.css"%>
+<link rel="icon"
+	href="/ShoppingSite/img/icon/to_top_kinniku_nohaikei.png">
 </head>
 <body class="index">
 	<container>
@@ -74,12 +76,11 @@ try {
 					</div>
 					<!-- <p><a href="register.jsp">会員登録が済んでいない人はこちら</a></p> -->
 					<p style="margin-top: 10px;">
-						<a href="#">パスワードをお忘れの方</a>
+						<a href="/ShoppingSite/views/users/forget_password.jsp">パスワードをお忘れの方</a>
 					</p>
-					<li>
-						<p style="margin-top: 20px;">
-							<a href="/ShoppingSite/views/users/register.jsp">会員登録が済んでいない人はこちら</a>
-						</p>
+					<p style="margin-top: 20px;">
+						<a href="/ShoppingSite/views/users/register.jsp">会員登録が済んでいない人はこちら</a>
+					</p>
 				</div>
 				<div class="clearfix"></div>
 			</form>
@@ -128,18 +129,22 @@ try {
 
 	//ログインボタン出現用チェック
 	//onメソッドを使ったkeyupイベント処理
-	$(document).on("keyup", "#id_input", function(e) {
-		//入力されたテキストを取得   
-		var id_input = $(this).val();
-		//上記変数をspanタグ内に反映
-		if ((id_input.match(mailcheck))&&($("#password_input").val().length != 0)) {
-			$("#login").removeClass("no_submit");
-			$('#login').prop('disabled', false);
-		} else {
-			$("#login").addClass("no_submit");
-			$('#login').prop('disabled', true);
-		}
-	});
+	$(document).on(
+			"keyup",
+			"#id_input",
+			function(e) {
+				//入力されたテキストを取得   
+				var id_input = $(this).val();
+				//上記変数をspanタグ内に反映
+				if ((id_input.match(mailcheck))
+						&& ($("#password_input").val().length != 0)) {
+					$("#login").removeClass("no_submit");
+					$('#login').prop('disabled', false);
+				} else {
+					$("#login").addClass("no_submit");
+					$('#login').prop('disabled', true);
+				}
+			});
 </script>
 
 

@@ -11,6 +11,8 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 <script type="text/javascript" src="js/jquery.zip2addr.js"></script>
+<link rel="icon"
+	href="/ShoppingSite/img/icon/to_top_kinniku_nohaikei.png">
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- メッセージ -->
 <c:if test="${errormsg != null }">
@@ -105,8 +107,12 @@
 							<td>
 
 								<div class="colum clearfix">
-									<p>■郵便番号</p>
-									<button id="auto_zip">自動</button>
+									<p class="f_l">■郵便番号</p>
+
+									<div class="auto_zip_area f_l">
+										<p id="auto_zip" style="margin-left: 5px;">住所検索</p>
+									</div>
+									<div class="clear"></div>
 									<p class="ml_15">
 										〒<input id="zip_code_1" type="tel" style="width: 80px;"
 											required>-<input id="zip_code_2" type="text"
@@ -117,8 +123,8 @@
 								</div>
 								<div class="colum clearfix">
 									<p>■都道府県</p>
-									<select name="pref" style="">
-										<option value="" selected="selected">都道府県を選択</option>
+									<select name="prefectures" style="">
+										<option value="0" selected="selected">都道府県を選択</option>
 										<option label="北海道" value="1">北海道</option>
 										<option label="青森県" value="2">青森県</option>
 										<option label="岩手県" value="3">岩手県</option>
@@ -226,156 +232,27 @@
 						</tr>
 					</tbody>
 				</table>
+
 				<div class="button_area">
-					<p class="float_l">
-						<input type="submit" name="regist" value="登録">
-					</p>
-					<p class="float_l">
+					<input type="hidden" id="post_type" name="post_type" value="regist" />
+					<p class="f_r" style="margin-top: -45px; margin-right: 8px;">
 						<input type="reset" name="reset" value="リセット">
 					</p>
-					<p class="float_l">
+					<p class="f_l" style="margin-top: -45px; margin-left: -15px;">
 						<input type="button" name="back"
-							onclick="location.href='/MemberInformation/views/settings.jsp'"
+							onclick="location.href='/ShoppingSite/views/users/home.jsp'"
 							value="戻る">
+
 					</p>
+					<div class="submit_area">
+						<div class="button">
+							<p class="submit_button">
+								<input type="submit" id="regist" name="regist" value="登録">
+							</p>
+						</div>
+					</div>
 				</div>
 				<!-- ▲試し -->
-				<!-- 				<div class="input_area">
-					<div class="colum">
-						<p>■メールアドレス(ログインid)</p>
-						<p class="ml_15">
-							<input type="email" id="inpMail" name="login_id"
-								style="width: 200px;" maxlength="50" required>
-						</p>
-						<p hidden id="warning" style="color: red;">このメールアドレスは既に存在しています。</p>
-					</div>
-					<div class="colum clearfix">
-						<p>■パスワード</p>
-						<p class="ml_15">
-							<input type="tel" name="login_password" style="width: 200px;"
-								maxlength="15" required>
-						</p>
-					</div>
-
-					<div class="colum clearfix">
-						<p>■名前</p>
-						<p class="float_l ml_15">
-							姓<input type="text" name="last_name" required>
-						</p>
-						<p class="float_l ml_15">
-							名<input type="text" name="first_name" required>
-						</p>
-					</div>
-					<div class="colum clearfix">
-						<p>■性別</p>
-						<p class="float_l ml_15">
-							<input type="radio" name="sex" value="1" checked>男
-						</p>
-						<p class="float_l ml_15">
-							<input type="radio" name="sex" value="2">女
-						</p>
-					</div>
-
-					<div class="colum clearfix">
-						<p>■生年月日</p>
-						<p class="float_l ml_15">
-							<select name="birth_year" required>
-								<option value=""></option>
-								<%for (int i = 1920; i <= 2020; i++) {%>
-								<option value="<%=i%>"><%=i%></option>
-								<%}%>
-							</select>年
-						</p>
-						<p class="float_l">
-							<select name="birth_month" required>
-								<option value=""></option>
-								<%for (int i = 1; i <= 12; i++) {%>
-								<option value="<%=i%>"><%=i%></option>
-								<%}%>
-							</select>月
-						</p>
-						<p class="float_l">
-							<select name="birth_day" required>
-								<option value=""></option>
-								<%for (int i = 1; i <= 31; i++) {%>
-								<option value="<%=i%>"><%=i%></option>
-								<%}%>
-							</select>日
-						</p>
-					</div>
-					<div class="colum clearfix">
-						<p>■郵便番号</p>
-						<p class="ml_15">
-							<input type="tel" name="zip_code" style="width: 200px;"
-								maxlength="15" required>
-						</p>
-					</div>
-					<div class="colum clearfix">
-						<p>■都道府県</p>
-						<p class="ml_15">
-							<input type="tel" name="prefectures" style="width: 200px;"
-								maxlength="15" required>
-						</p>
-					</div>
-					<div class="colum clearfix">
-						<p>■住所(市町村以降)</p>
-						<p class="ml_15">
-							<input type="tel" name="city_address" style="width: 200px;"
-								maxlength="15" required>
-						</p>
-					</div>
-					<div class="colum clearfix">
-						<p>■電話番号</p>
-						<p class="ml_15">
-							<input type="tel" name="phone_number" style="width: 200px;"
-								maxlength="15" required>
-						</p>
-					</div>
-					<div class="colum">
-						<p>■メールアドレス(配信用)</p>
-						<p class="ml_15">
-							<input type="email" name="delivery_mail_address"
-								style="width: 200px;" maxlength="50" required>
-						</p>
-					</div>
-					<div class="colum clearfix">
-						<p>■職業</p>
-						<p class="ml_15">
-							<select name="job" style="width: 200px;" required>
-								<option value="100">会社員</option>
-								<option value="200">自営業</option>
-								<option value="300">学生</option>
-								<option value="400">その他</option>
-							</select>
-						</p>
-					</div>
-					<div class="colum clearfix">
-						<p>■お得な情報を配信しますか</p>
-						<p class="float_l ml_15">
-							<input type="radio" name="email_delivery" value="1" checked>する
-						</p>
-						<p class="float_l ml_15">
-							<input type="radio" name="email_delivery" value="2">しない
-						</p>
-					</div>
-				</div>
-				<input type="hidden" id="post_type" name="post_type" value="Regist" />
-		</div>
-		<div class="button_area clearfix">
-			<div class="button_area_center">
-				<p class="float_l">
-					<input type="submit" name="regist" value="登録">
-				</p>
-				<p class="float_l">
-					<input type="reset" name="reset" value="リセット">
-				</p>
-				<p class="float_l">
-					<input type="button" name="back"
-						onclick="location.href='/MemberInformation/views/settings.jsp'"
-						value="戻る">
-				</p>
-			</div>
-		</div> -->
 			</form>
 		</div>
 	</container>
@@ -410,7 +287,7 @@
 		}
 	});
 	$('#auto_zip').on('click', function() {
-		AjaxZip3.zip2addr('zip_code', '', 'pref', 'city_address');
+		AjaxZip3.zip2addr('zip_code', '', 'prefectures', 'city_address');
 	});
 </script>
 <script src="/ShoppingSite/js/ajax.js"></script>

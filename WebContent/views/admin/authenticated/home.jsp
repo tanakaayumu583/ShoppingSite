@@ -9,13 +9,15 @@
 <meta charset="UTF-8">
 <title>Home</title>
 <%@include file="../../../../css/admin/admin_home.css"%>
+<link rel="icon" href="/ShoppingSite/img/icon/favicon_admin.png">
 </head>
-<!-- 新着読み込み -->
+<!-- ▼新着読み込み -->
 <%
 NotificationDAO dao = new NotificationDAO();
 List<jp.co.aforce.bean.NotificationBean> list = new ArrayList<>();
 list = dao.search_new_arrivals_notification();
 %>
+<!-- ▲新着読み込み -->
 <body>
 	<jsp:include page="../header_admin.jsp" />
 
@@ -33,7 +35,7 @@ list = dao.search_new_arrivals_notification();
 				%>
 				<li>
 					<form action="#">
-						<a href="#" class="unread">
+						<a href="/ShoppingSite/views/admin/authenticated/new_arrivals_detail.jsp?notification_id=<%=n.getNotification_id()%>" class="unread">
 							<p class="side_news_day"><%=n.getDate()%></p>
 							<p class="side_news_title"><%=n.getLast_name()%>
 								<%=n.getFirst_name()%>さんが<%=n.getSum()%>円分購入しました。
@@ -47,7 +49,7 @@ list = dao.search_new_arrivals_notification();
 				%>
 			</ul>
 			<p id="side_news_link">
-				<a href="#">すべての新着情報を見る</a>
+				<a href="/ShoppingSite/views/admin/authenticated/new_arrivals_list.jsp">すべての新着情報を見る</a>
 			</p>
 		</div>
 		<div class="p-mypage p-mypage_left">
@@ -75,7 +77,8 @@ list = dao.search_new_arrivals_notification();
 							<img src="/ShoppingSite/img/icon/basic05.png" alt="注文明細">
 						</p>
 						<p class="center">注文明細</p>
-					</a> <a href="/ShoppingSite/jp.co.aforce.servlet/Manage_product_list"
+					</a> 
+					<!-- <a href="/ShoppingSite/jp.co.aforce.servlet/Manage_product_list"
 						class="p-mypage_content_detail">
 						<p class="center">
 							<img src="/ShoppingSite/img/icon/basic02.png" alt="メッセージ管理">
@@ -83,18 +86,21 @@ list = dao.search_new_arrivals_notification();
 						<p class="center">
 							メッセージ<br>管理
 						</p>
-					</a>
+					</a> -->
 				</div>
 				<h2 class="o-title_mypage">その他</h2>
 				<div class="p-mypage_content">
-					<a href="/ShoppingSite/jp.co.aforce.servlet/Manage_product_list"
+					<a href="/ShoppingSite/views/admin/authenticated/new_arrivals_list.jsp"
 						class="p-mypage_content_detail">
 						<p class="center">
 							<img src="/ShoppingSite/img/icon/basic06.png" alt="新着">
 						</p>
 						<p class="center">新着</p>
-					</a> <a href="/ShoppingSite/jp.co.aforce.servlet/Manage_product_list"
-						class="p-mypage_content_detail">
+					</a> 
+					<a href="/ShoppingSite/views/admin/authenticated/new_arrivals_list.jsp"
+					class="p-mypage_content_detail"
+					style="background-color:gray;"
+					>
 						<p class="center">
 							<img src="/ShoppingSite/img/icon/basic03.png" alt="設定">
 						</p>

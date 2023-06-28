@@ -13,7 +13,9 @@
 <title>Home</title>
 <%@include file="../../../css/users/users_cart.css"%>
 <%@include file="../../../css/users/users_background.css"%>
+<link rel="icon" href="/ShoppingSite/img/icon/to_top_kinniku_nohaikei.png">
 </head>
+<%@include file="../../to_top.html"%>
 <!-- ▼カート情報取得　-->
 <%
 CartBean cart = (CartBean) session.getAttribute("cart");
@@ -30,6 +32,10 @@ if (loginCheck == null) {
 }
 %>
 <!-- ▲ログインステータス取得  -->
+<style>
+
+
+</style>
 <!-- ▼BODY部 スタート -->
 <body class="index">
 	<div class="frame_outer">
@@ -39,7 +45,7 @@ if (loginCheck == null) {
 			<div id="header" class="clearfix">
 				<div id="logo_area">
 					<h1>
-						<a href="#"><span>ホームタイトル</span></a>
+						<a href="#"><span>EC Shopping</span></a>
 					</h1>
 				</div>
 				<div id="header_utility">
@@ -54,10 +60,11 @@ if (loginCheck == null) {
 				<div class="undercolumn letter">
 					<div id="undercolumn_cart">
 						<h2 class="title">現在のカゴの中</h2>
+						<% if(cart != null){ %>
+
 						<!--★ポイント案内★-->
 						<div class="point_announce">
-							ポイントをためられる場合は、会員登録後ログインしてくださいますようお願い致します。<br />
-							ポイントはすてきなプレゼントと交換することができます。商品購入時にお申込ください。<br />
+
 						</div>
 						<p class="totalmoney_area"></p>
 						<div class="form_area">
@@ -67,10 +74,7 @@ if (loginCheck == null) {
 									type="hidden" name="cart_no" value="" /> <input type="hidden"
 									name="cartKey" value="1" /> <input type="hidden"
 									name="category_id" value="" />
-								<p>
-									お買い上げ商品の合計金額は「<span class="price">2,970円</span>」です。 あと「<span
-										class="price">9,030円</span>」で送料無料です！！
-								</p>
+
 
 								<table summary="商品情報">
 									<colgroup>
@@ -91,40 +95,59 @@ if (loginCheck == null) {
 											<th class="alignC">小計</th>
 										</tr>
 										<%
+										if(cart != null){
 										for (ProductBean p : cart.getList()) {
 										%>
 										<tr class="frame130">
-											<td class="alignC"><a href="#" onclick="">削除</a></td>
+											<td class="alignC"><a
+												href="/ShoppingSite/jp.co.aforce.servlet/Delete_cart_one_product?product_id=<%=p.getProduct_id()%>"
+												onclick="return confirm('本当に削除しますか？');">削除</a></td>
 											<td class="alignC frame130"><a class="expansion"
-												target="_blank" href="#"> <img src="#" alt="具無しカンパーニュ"
+												target="_blank" href="#"> <img
+													src="/ShoppingSite/img/product_img/<%=p.getProduct_id()%>/<%=p.getP_img()%>"
+													alt="<%=p.getName()%>" style="width: 50px; height: 50px;"
 													class="img130" />
 											</a></td>
-											<td><a href="#"><strong><%=p.getName()%></strong></a><br />
-												クール便選択：冷蔵便<br /></td>
+											<td><a href="#"><strong><%=p.getName()%></strong></a></td>
 											<td class="alignR"><%=p.getPrice()%>円</td>
-											<td class="alignC"><%=p.getQuantity()%>
-												<ul id="quantity_level">
-													<li><a href="#" onclick=""><img src="#" width="16"
-															height="16" alt="＋" /></a></li>
-													<li><a href="" onclick=""><img src="" width="16"
+											<td class="alignC"><p class="f_l"><%=p.getQuantity()%></p>
+												<ul id="quantity_level" class="f_r" style="margin-right:35px;">
+													<li><a
+														href="/ShoppingSite/jp.co.aforce.servlet/Update_cart_quantity?product_id=<%=p.getProduct_id()%>&quantity_level=1"
+														onclick=""><img src="/ShoppingSite/img/users/plus.png"
+															width="16" height="16" alt="＋" /></a></li>
+													<li><a <%if(p.getQuantity() <=1) {%>
+														class="a_tag_nopoint" <%} %>
+														href="/ShoppingSite/jp.co.aforce.servlet/Update_cart_quantity?product_id=<%=p.getProduct_id()%>&quantity_level=-1"
+														onclick=""><img
+															src="/ShoppingSite/img/users/minus.png" width="16"
 															height="16" alt="-" /></a></li>
 												</ul></td>
 											<td class="alignR"><%=p.getPrice() * p.getQuantity()%>円</td>
 										</tr>
 										<%
-										}
+										}}
 										%>
 										<tr>
 											<th colspan="5" class="alignR">小計</th>
-											<td class="alignR"><%=cart.getTotal()%>円</td>
+											<td class="alignR">
+												<% if(cart != null){%><%=cart.getTotal()%>
+												<% }else{%>0<%} %>円
+											</td>
 										</tr>
 										<tr>
 											<th colspan="5" class="alignR">合計</th>
-											<td class="alignR"><span class="price"><%=cart.getTotal()%>円</span></td>
+											<td class="alignR"><span class="price">
+													<% if(cart != null){%><%=cart.getTotal()%>
+													<% }else{%>0<%} %>円
+											</span></td>
 										</tr>
 										<tr>
 											<th colspan="5" class="alignR">今回加算ポイント</th>
-											<td class="alignR">205pt</td>
+											<td class="alignR">
+												<% if(cart != null){%><%=cart.getTotal()/100%>pt
+												<% }else{%>0<%} %>
+											</td>
 										</tr>
 									</tbody>
 								</table>
@@ -134,11 +157,14 @@ if (loginCheck == null) {
 										<li><a
 											href="/ShoppingSite/jp.co.aforce.servlet/User_product_list">買い物を続ける</a>
 										</li>
-										<li><a href="/ShoppingSite/jp.co.aforce.servlet/Purchase">購入手続き</a></li>
+										<li><a href="/ShoppingSite/jp.co.aforce.servlet/Purchase" onclick="alert('購入が完了しました。');">購入手続き</a></li>
 									</ul>
 								</div>
 							</form>
 						</div>
+						<%}else{ %>
+						<div>カートの中は空です。</div>
+						<%} %>
 					</div>
 				</div>
 				<!-- ▲商品詳細 -->

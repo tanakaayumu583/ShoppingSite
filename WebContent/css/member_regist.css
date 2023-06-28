@@ -11,6 +11,12 @@ h2{
 margin-top:20px;
 margin-bottom:20px;
 }
+.f_l{
+float:left;
+}
+.f_r{
+float:right;
+}
 .colum{
 margin-bottom:40px;
 }

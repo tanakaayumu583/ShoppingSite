@@ -8,6 +8,9 @@ margin:0; padding:0;
 .f_l{
 float:left;
 }
+.f_r{
+float:right;
+}
 .clear {
     clear: both;
 }
@@ -388,5 +391,58 @@ table td {
     font-family: Verdana,Arial,Helvetica,sans-serif;
 }
 /*▲会員登録画面付け足し*/
+.submit_area{
+height:70px;
+text-align: center;
+}
+.button{
+width: 400px;
+height:60px;
+margin:0 auto;
+margin-top:50px;
+}
+#regist{
+    appearance: none;
+    box-sizing: border-box;
+    border-radius: 5px;
+    width: 100%;
+    text-decoration: none!important;
+    font-weight: 700;
+    height: 60px;
+    font-size: 16px;
+    background-color:rgba(220, 230, 76, 0.8);
+    color: #fff!important;
+    border: 0;
+    cursor: pointer;
+}
+#update{
+    appearance: none;
+    box-sizing: border-box;
+    border-radius: 5px;
+    width: 100%;
+    text-decoration: none!important;
+    font-weight: 700;
+    height: 60px;
+    font-size: 16px;
+    background-color:rgba(220, 230, 76, 0.8);
+    color: #fff!important;
+    border: 0;
+    cursor: pointer;
+}
+.attention{
+color:red;
+}
+.auto_zip_area{
+margin-left:10px;
+width:80px;
+height:20px;
+background-color:gray;
+border-radius:20px;
+
+}
+#auto_zip{
+cursor:pointer;
+color:white;
+}
 
 </style>
