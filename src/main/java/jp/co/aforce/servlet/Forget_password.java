@@ -41,10 +41,15 @@ public class Forget_password extends HttpServlet {
 			//ログインidをキーにユーザ情報を取得
 			List<User_informationBean> list_s_m = new ArrayList<>();
 			list_s_m = Member_function.member_search_for_passwordsend(user_id);
-			if(list_s_m.get(0) != null) {
+//			 if(list_s_m.get(0) != null) {
+//				url = "/ShoppingSite/views/users/forget_password.jsp?status=none";
+//				response.sendRedirect(url);
+//			}
+			if(list_s_m.size() == 0) {
 				url = "/ShoppingSite/views/users/forget_password.jsp?status=none";
 				response.sendRedirect(url);
-			}
+			}else {
+			System.out.println(list_s_m.get(0).getLogin_id());
 		    User_informationBean u_i=list_s_m.get(0);
 			//パスワードをお知らせ
 			Mail_function.send_password_function(u_i.getLogin_id(),u_i.getLast_name(),u_i.getLogin_password(),ipAddress);
@@ -52,6 +57,7 @@ public class Forget_password extends HttpServlet {
 			
 			url = "/ShoppingSite/views/users/forget_password_finished.jsp";
 			response.sendRedirect(url);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

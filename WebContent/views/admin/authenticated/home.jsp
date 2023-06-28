@@ -97,9 +97,9 @@ list = dao.search_new_arrivals_notification();
 						</p>
 						<p class="center">新着</p>
 					</a> 
-					<a href="/ShoppingSite/views/admin/authenticated/new_arrivals_list.jsp"
+					<a href=""
 					class="p-mypage_content_detail"
-					style="background-color:gray;"
+					style="background-color:gray; cursor:not-allowed;"
 					>
 						<p class="center">
 							<img src="/ShoppingSite/img/icon/basic03.png" alt="設定">
